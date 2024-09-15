@@ -240,8 +240,11 @@ def get_local_ip():
 
 def main():
     beginDateTimeLog()
+    titleName = f"{SITENAME.upper()} - OpenPySite"
+    if os.name == "nt":
+        os.system(f"title {titleName}")
     print("-~"*44)
-    print(f"{SITENAME.upper()} - OpenPySite")
+    print(titleName)
     print(f"Set webserver host: {SERVERADDRESS[0]:20}\t| Set webserver port: {SERVERADDRESS[1]}")
     print(f"Current local IP: {get_local_ip():20}\t| Current public IP: {requests.get('https://api.ipify.org').content.decode('utf8')}")
     if USEDNS == True:
